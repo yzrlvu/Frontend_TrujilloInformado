@@ -1,0 +1,50 @@
+/* Responsive y accesibilidad de movimiento */
+/* ---------- responsive ---------- */
+@media(max-width:1000px){
+  main{padding:36px 32px 56px}
+  .grid2{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:800px){
+  .app{grid-template-columns:1fr}
+  aside{position:relative;height:auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 12px;padding:12px 16px 16px}
+  aside::after{top:auto;left:0;right:0;bottom:0;width:auto;height:8px;background:var(--friso-h) repeat-x;background-color:var(--azul-hover)}
+  .brand{margin:0;font-size:var(--t15)}
+  #nav{grid-column:1/-1;grid-row:2;flex-direction:row;overflow-x:auto;gap:4px;margin:0 -4px;scrollbar-width:none}
+  .nav{white-space:nowrap;padding:8px 12px}
+  .nav.active::before{left:12px;right:12px;top:auto;bottom:2px;width:auto;height:2px}
+  .user{grid-column:2;grid-row:1;margin:0;padding:0;border:0;display:flex;align-items:center}
+  .user b,.user small{display:none}
+  .user .link{margin:0}
+  main{padding:28px 16px 48px}
+  h1{font-size:var(--t24)}
+  .head{margin-bottom:24px}
+  .head .btn{flex:1 1 auto}
+  .kpis{grid-template-columns:1fr 1fr;padding:0}
+  .kpi{padding:18px 16px}
+  .kpi:nth-child(odd){padding-left:0;border-left:0}
+  .kpi:nth-child(n+3){border-top:1px solid var(--linea)}
+  .kpi b{font-size:36px}
+  .row{grid-template-columns:1fr}
+  .login{grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr}
+  .login-art{height:72px;padding:0}
+  .login-art p{display:none}
+  .login-main{place-items:start center;padding:36px 16px 48px}
+  .login-box .brand{margin-bottom:28px}
+  .drawer{padding:16px 20px 32px}
+  .actions{flex-direction:column-reverse}
+  .actions .btn{width:100%;padding:12px 16px}
+}
+@media(max-width:560px){
+  .item{grid-template-columns:36px minmax(0,1fr);padding:14px 4px;gap:12px}
+  .item .journey{grid-column:2;width:auto;display:flex;align-items:center;gap:12px}
+  .item .journey ol{width:96px}
+  .item .journey .jt{width:88px;right:auto}
+  .fgroup{flex-direction:column;gap:6px}
+  .tp{gap:8px}
+  .tp .chip{padding:12px;font-size:var(--t13)}
+  .tp .chip svg{width:24px;height:24px}
+  .dl{grid-template-columns:96px 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
