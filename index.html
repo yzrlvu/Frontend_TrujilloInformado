@@ -1,76 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trujillo Informado</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@600;700&display=swap">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/views.css">
-<link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
-
-<!-- LOGIN -->
-<section id="loginView" class="login">
-  <div class="login-art">
-    <p><strong>Tu barrio, más limpio.</strong>Reporta basura, maleza o calles sin barrer y sigue cómo SEGAT lo resuelve.</p>
-  </div>
-  <div class="login-main">
-    <div class="login-box">
-      <div class="brand"><span class="dot"></span>Trujillo Informado</div>
-      <h1 id="authTitle">Inicia sesión</h1>
-      <p class="sub" id="authSub">Reporta y sigue incidencias ambientales de tu ciudad.</p>
-      <form id="authForm">
-        <div id="regFields" class="hidden">
-          <div class="row">
-            <div><label for="f-fn">Nombre</label><input id="f-fn" name="firstname" autocomplete="given-name"></div>
-            <div><label for="f-ln">Apellido</label><input id="f-ln" name="lastname" autocomplete="family-name"></div>
-          </div>
-          <div class="row">
-            <div><label for="f-ph">Teléfono</label><input id="f-ph" name="phone" type="tel" autocomplete="tel"></div>
-            <div><label for="f-bd">Fecha de nacimiento</label><input id="f-bd" name="birthdate" type="date"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trujillo Informado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/views.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- LOGIN -->
+    <section id="loginView" class="login">
+      <div class="login-art">
+        <p>
+          <strong>Tu barrio, más limpio.</strong>Reporta basura, maleza o calles
+          sin barrer y sigue cómo SEGAT lo resuelve.
+        </p>
+      </div>
+      <div class="login-main">
+        <div class="login-box">
+          <div class="brand"><span class="dot"></span>Trujillo Informado</div>
+          <h1 id="authTitle">Inicia sesión</h1>
+          <p class="sub" id="authSub">
+            Reporta y sigue incidencias ambientales de tu ciudad.
+          </p>
+          <form id="authForm">
+            <div id="regFields" class="hidden">
+              <div class="row">
+                <div>
+                  <label for="f-fn">Nombre</label
+                  ><input
+                    id="f-fn"
+                    name="firstname"
+                    autocomplete="given-name"
+                  />
+                </div>
+                <div>
+                  <label for="f-ln">Apellido</label
+                  ><input
+                    id="f-ln"
+                    name="lastname"
+                    autocomplete="family-name"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div>
+                  <label for="f-ph">Teléfono</label
+                  ><input
+                    id="f-ph"
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel"
+                  />
+                </div>
+                <div>
+                  <label for="f-bd">Fecha de nacimiento</label
+                  ><input id="f-bd" name="birthdate" type="date" />
+                </div>
+              </div>
+            </div>
+            <label for="f-em">Correo</label
+            ><input
+              id="f-em"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+            />
+            <label for="f-pw">Contraseña</label
+            ><input
+              id="f-pw"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+            <button class="btn primary" id="authBtn">Ingresar</button>
+          </form>
+          <p class="alt">
+            <button class="link" id="toggleAuth">
+              ¿No tienes cuenta? Regístrate
+            </button>
+          </p>
+          <p class="sep">O explora en modo demo</p>
+          <div class="demo">
+            <button class="btn" data-demo="CIUDADANO">Ciudadano</button>
+            <button class="btn" data-demo="SUPERVISOR">Supervisor</button>
+            <button class="btn" data-demo="TRABAJADOR">Trabajador</button>
           </div>
         </div>
-        <label for="f-em">Correo</label><input id="f-em" name="email" type="email" autocomplete="email" required>
-        <label for="f-pw">Contraseña</label><input id="f-pw" name="password" type="password" autocomplete="current-password" required>
-        <button class="btn primary" id="authBtn">Ingresar</button>
-      </form>
-      <p class="alt"><button class="link" id="toggleAuth">¿No tienes cuenta? Regístrate</button></p>
-      <p class="sep">O explora en modo demo</p>
-      <div class="demo">
-        <button class="btn" data-demo="CIUDADANO">Ciudadano</button>
-        <button class="btn" data-demo="SUPERVISOR">Supervisor</button>
-        <button class="btn" data-demo="TRABAJADOR">Trabajador</button>
       </div>
-      <details class="api">
-        <summary>Servidor API</summary>
-        <input id="apiBase" placeholder="https://trujillo-informado-backend-3b3a9e8b54ac.herokuapp.com" aria-label="URL del servidor API">
-      </details>
+    </section>
+
+    <!-- APP -->
+    <div id="appView" class="app hidden">
+      <aside>
+        <div class="brand"><span class="dot"></span>Trujillo Informado</div>
+        <div id="nav" role="navigation" aria-label="Secciones"></div>
+        <div class="user">
+          <b id="uName"></b><small id="uRole"></small>
+          <button class="link" id="logout">Cerrar sesión</button>
+        </div>
+      </aside>
+      <main id="main"></main>
     </div>
-  </div>
-</section>
 
-<!-- APP -->
-<div id="appView" class="app hidden">
-  <aside>
-    <div class="brand"><span class="dot"></span>Trujillo Informado</div>
-    <div id="nav" role="navigation" aria-label="Secciones"></div>
-    <div class="user"><b id="uName"></b><small id="uRole"></small>
-      <button class="link" id="logout">Cerrar sesión</button></div>
-  </aside>
-  <main id="main"></main>
-</div>
+    <div id="layer"></div>
 
-<div id="layer"></div>
-
-<script type="module" src="js/main.js"></script>
-</body>
+    <script type="module" src="js/main.js"></script>
+  </body>
 </html>

@@ -71,16 +71,28 @@ test.describe("Login", () => {
     expect(calls.slice(0, 2)).toEqual(["/auth/registro", "/auth/autenticar"]);
   });
 
-  test("usa la URL de API configurada", async ({ page }) => {
+  test("usa el backend de Heroku por defecto", async ({ page }) => {
+    let hit = "";
+    await page.route(/herokuapp\.com\/api\/v1\/auth\//, (r) => {
+      hit = r.request().url();
+      return r.fulfill({ status: 500, body: "" });
+    });
+    await page.goto("/");
+    await page.locator("#f-em").fill("a@b.pe");
+    await page.locator("#f-pw").fill("x");
+    await page.locator("#authBtn").click();
+    await expect(page.locator(".toast")).toBeVisible();
+    expect(hit).toBe("https://trujillo-informado-backend-3b3a9e8b54ac.herokuapp.com/api/v1/auth/autenticar");
+  });
+
+  test("usa la URL de API configurada en localStorage", async ({ page }) => {
     let hit = "";
     await page.route("https://api.ejemplo.pe/**", (r) => {
       hit = r.request().url();
       return r.fulfill({ status: 500, body: "" });
     });
+    await page.addInitScript(() => localStorage.setItem("ti_api", "https://api.ejemplo.pe/"));
     await page.goto("/");
-    await page.locator("details.api summary").click();
-    await page.locator("#apiBase").fill("https://api.ejemplo.pe/");
-    await page.locator("#apiBase").dispatchEvent("change");
     await page.locator("#f-em").fill("a@b.pe");
     await page.locator("#f-pw").fill("x");
     await page.locator("#authBtn").click();

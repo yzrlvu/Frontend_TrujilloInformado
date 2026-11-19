@@ -8,10 +8,12 @@ import { enter, go, http } from "./router.js";
 
 const auth = createAuthApi(http);
 
-/* ---------- servidor API configurable ---------- */
+/* ---------- servidor API configurable (campo opcional en el login) ---------- */
 const apiInput = $("#apiBase");
-apiInput.value = getCustomApiBase();
-apiInput.addEventListener("change", (e) => setApiBase(e.target.value));
+if (apiInput) {
+  apiInput.value = getCustomApiBase();
+  apiInput.addEventListener("change", (e) => setApiBase(e.target.value));
+}
 
 /* ---------- login / registro ---------- */
 let registering = false;
