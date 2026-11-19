@@ -27,4 +27,16 @@ test.describe("Trabajador", () => {
     await expect(drawer(page)).toHaveCount(0);
     await expect(page.locator("#main .sub")).toHaveText("Tienes 1 tarea por atender.");
   });
+
+  test("el estado vacío filtrado ofrece volver a todas las tareas", async ({ page }) => {
+    await items(page).nth(1).click();
+    await drawer(page).locator("#evf").setInputFiles({ name: "ev.png", mimeType: "image/png", buffer: Buffer.from("x") });
+    await drawer(page).getByRole("button", { name: "Completar tarea" }).click();
+    await expect(drawer(page)).toHaveCount(0);
+    await page.locator("#main .chip", { hasText: "Pendiente" }).click();
+    await expect(page.locator("#main .empty")).toContainText("No tienes tareas en estado “Pendiente”.");
+    await page.locator("#main .empty").getByRole("button", { name: "Ver todas mis tareas" }).click();
+    await expect(items(page)).toHaveCount(3);
+    await expect(page.locator("#main .chip.on")).toHaveText("Todas");
+  });
 });
