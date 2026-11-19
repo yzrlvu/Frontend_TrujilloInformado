@@ -57,12 +57,15 @@ describe("escrituras", () => {
     expect(lastCall(http.request)[1].body.citizenId).toBe("9");
   });
 
-  it("asignar envía el DTO de la tarea", async () => {
+  it("asignar envía el DTO de la tarea y pasa el reporte a EN_PROGRESO", async () => {
     const rep = { id: 101, type: "BARRIDO", location: { address: "X" } };
     await repo.asignar(rep, "3", "Barrer");
     expect(lastCall(http.request)).toEqual([
       "/api/v1/tarea",
-      { method: "POST", body: { reportId: 101, workerId: 3, description: "Barrer", type: "BARRIDO", location: { address: "X" } } },
+      {
+        method: "POST",
+        body: { reportId: 101, workerId: 3, description: "Barrer", type: "BARRIDO", location: { address: "X" }, status: "EN_PROGRESO" },
+      },
     ]);
   });
 

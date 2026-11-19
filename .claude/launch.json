@@ -5,7 +5,7 @@
       "name": "static",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "serve"],
-      "port": 5173
+      "port": 5500
     }
   ]
 }

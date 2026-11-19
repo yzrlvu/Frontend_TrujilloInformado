@@ -1,6 +1,6 @@
 /** Configuración y constantes compartidas por toda la aplicación. */
 
-/** URL del backend desplegado; se puede sobrescribir desde "Servidor API" en el login. */
+/** URL del backend desplegado; se puede sobrescribir con localStorage["ti_api"] (o el campo #apiBase si existe). */
 export const API_DEFAULT = "https://trujillo-informado-backend-3b3a9e8b54ac.herokuapp.com";
 
 export const STORAGE_KEYS = Object.freeze({

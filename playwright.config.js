@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const PORT = 5173;
+const PORT = 5500; // único puerto local permitido por el CORS del backend
 
 export default defineConfig({
   testDir: "tests/e2e",

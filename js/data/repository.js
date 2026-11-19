@@ -42,7 +42,8 @@ export function createRemoteRepo(http, session) {
     asignar: (reporte, workerId, description) =>
       http.request("/api/v1/tarea", {
         method: "POST",
-        body: { reportId: reporte.id, workerId: Number(workerId), description, type: reporte.type, location: reporte.location },
+        // Sin `status` el backend deja el reporte en PENDIENTE tras asignarlo.
+        body: { reportId: reporte.id, workerId: Number(workerId), description, type: reporte.type, location: reporte.location, status: "EN_PROGRESO" },
       }),
 
     completar: (tarea, evidence) =>
