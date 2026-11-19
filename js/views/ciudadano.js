@@ -14,8 +14,8 @@ export async function misReportes(ctx, estado = "") {
   try {
     const items = await ctx.repo.misReportes(estado);
     const empty = estado
-      ? `<p>No tienes reportes en estado “${STATUS[estado]}”.</p>`
-      : `<p>Aún no tienes reportes. Cuando veas un problema en tu barrio, repórtalo aquí.</p>${CREATE_BUTTON}`;
+      ? `<p>No tienes reportes en estado “${STATUS[estado]}”.</p><button class="btn" data-s="">Ver todos mis reportes</button>`
+      : `<p>Aún no tienes reportes. Cuando veas un problema en tu barrio, repórtalo aquí.</p><button class="btn accent" data-go="nuevo">Crear mi primer reporte</button>`;
 
     renderMain(`${pageHead("Mis reportes", "Sigue el recorrido de cada problema que reportaste.", CREATE_BUTTON)}
     ${statusFilter(estado, "Todos")}${listHTML(items, reportItem, empty)}`);
@@ -48,7 +48,7 @@ const reportFormHTML = () => `${pageHead("Nuevo reporte", "Cuéntanos qué viste
     <form class="form" id="rf">
       <label>¿Qué tipo de problema es?</label>
       <div class="filters tp" id="tp" role="group" aria-label="Tipo de problema">${Object.entries(TYPES)
-        .map(([k, l], i) => `<button type="button" class="chip ${i ? "" : "on"}" data-k="${k}">${typeIcon(k)}<span>${l}</span></button>`)
+        .map(([k, l], i) => `<button type="button" class="chip ${i ? "" : "on"}" data-k="${k}"><span class="tic">${typeIcon(k)}</span><span>${l}</span></button>`)
         .join("")}</div>
       <label for="desc">Descripción</label><textarea id="desc" name="description" rows="3" required placeholder="Ej. Basura acumulada junto al paradero"></textarea>
       <label for="addr">Dirección o referencia</label>

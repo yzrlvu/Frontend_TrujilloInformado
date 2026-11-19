@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#123B2C" />
     <title>Trujillo Informado</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Figtree:wght@400;500;600;700&display=swap"
     />
     <link
       rel="stylesheet"
@@ -23,18 +24,66 @@
     <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="logo" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#B7E36B"/><path d="M9.5 23c-.5-7.6 4-12.8 13-13.5-.2 8.6-4.9 13.1-13 13.5z" fill="#123B2C"/><path d="M9.5 23l8-8.4" stroke="#B7E36B" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    </svg>
+
     <!-- LOGIN -->
     <section id="loginView" class="login">
       <div class="login-art">
-        <p>
-          <strong>Tu barrio, más limpio.</strong>Reporta basura, maleza o calles
-          sin barrer y sigue cómo SEGAT lo resuelve.
-        </p>
+        <div class="brand"><svg class="logo" aria-hidden="true"><use href="#logo"/></svg>Trujillo Informado</div>
+        <div class="hero">
+          <h1>Trujillo más limpio empieza con <em>tu reporte</em></h1>
+          <p>Reporta basura, maleza o calles sin barrer. SEGAT lo atiende y tú sigues cada paso.</p>
+        </div>
+        <ul class="impact" id="impact" aria-label="Cifras de impacto">
+          <li><b>3</b><span>tipos de incidencia: residuos, maleza y barrido</span></li>
+          <li><b>6</b><span>zonas atendidas por SEGAT</span></li>
+          <li><b>3</b><span>pasos que puedes seguir: reportado, asignado y resuelto</span></li>
+        </ul>
+        <div class="city" aria-hidden="true">
+          <svg viewBox="0 0 520 300" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="blocks" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)">
+                <path d="M0 0H18M0 0V18" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+              </pattern>
+              <pattern id="blocksC" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)">
+                <path d="M0 0H9M0 0V9" stroke="rgba(183,227,107,.16)" stroke-width="1"/>
+              </pattern>
+              <clipPath id="centro"><polygon points="300,92 336,104 356,134 354,170 330,198 294,208 258,196 238,168 240,130 262,102"/></clipPath>
+            </defs>
+            <rect width="520" height="300" fill="url(#blocks)"/>
+            <!-- océano -->
+            <path d="M0 120 C40 140 70 170 96 205 C122 240 150 270 176 300 H0Z" fill="#0A251B"/>
+            <path d="M14 168c10 4 18 4 28 0M30 210c10 4 18 4 28 0M60 252c10 4 18 4 28 0" stroke="rgba(255,255,255,.12)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <text x="12" y="244" fill="rgba(255,255,255,.4)" font-family="Figtree,sans-serif" font-size="11">Océano Pacífico</text>
+            <!-- avenidas radiales -->
+            <g stroke="rgba(255,255,255,.16)" stroke-width="2" fill="none" stroke-linecap="round">
+              <path d="M296 150 L120 30"/><path d="M296 150 L150 300"/><path d="M296 150 L520 40"/>
+              <path d="M296 150 L520 250"/><path d="M296 150 L340 0"/><path d="M296 150 L320 300"/>
+            </g>
+            <!-- Av. América -->
+            <ellipse cx="296" cy="150" rx="150" ry="112" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2.5"/>
+            <!-- centro histórico y Av. España -->
+            <rect x="200" y="50" width="200" height="200" fill="url(#blocksC)" clip-path="url(#centro)"/>
+            <polygon points="300,92 336,104 356,134 354,170 330,198 294,208 258,196 238,168 240,130 262,102" fill="none" stroke="rgba(183,227,107,.55)" stroke-width="3" stroke-linejoin="round"/>
+            <rect x="290" y="143" width="12" height="12" rx="2" fill="rgba(255,255,255,.3)"/>
+            <text x="362" y="96" fill="rgba(255,255,255,.45)" font-family="Figtree,sans-serif" font-size="11">Centro histórico</text>
+            <!-- reportes -->
+            <g class="pt" style="--d:.3s"><circle class="pulse" cx="318" cy="128" r="8"/><circle class="core" cx="318" cy="128" r="8"/></g>
+            <g class="pt" style="--d:.65s"><circle class="pulse" cx="214" cy="200" r="8"/><circle class="core" cx="214" cy="200" r="8"/></g>
+            <g class="pt" style="--d:1s"><circle class="pulse" cx="408" cy="104" r="8"/><circle class="core" cx="408" cy="104" r="8"/></g>
+            <g class="pt" style="--d:1.35s"><circle class="pulse" cx="270" cy="180" r="8"/><circle class="core" cx="270" cy="180" r="8"/></g>
+            <g class="pt" style="--d:1.7s"><circle class="pulse" cx="182" cy="96" r="8"/><circle class="core" cx="182" cy="96" r="8"/></g>
+            <g class="pt" style="--d:2.05s"><circle class="pulse" cx="380" cy="218" r="8"/><circle class="core" cx="380" cy="218" r="8"/></g>
+            <g class="pt" style="--d:2.4s"><circle class="pulse" cx="300" cy="244" r="8"/><circle class="core" cx="300" cy="244" r="8"/></g>
+            <g class="pt" style="--d:2.75s"><circle class="pulse" cx="460" cy="168" r="8"/><circle class="core" cx="460" cy="168" r="8"/></g>
+          </svg>
+        </div>
       </div>
       <div class="login-main">
         <div class="login-box">
-          <div class="brand"><span class="dot"></span>Trujillo Informado</div>
-          <h1 id="authTitle">Inicia sesión</h1>
+          <h2 id="authTitle">Inicia sesión</h2>
           <p class="sub" id="authSub">
             Reporta y sigue incidencias ambientales de tu ciudad.
           </p>
@@ -97,11 +146,13 @@
               ¿No tienes cuenta? Regístrate
             </button>
           </p>
-          <p class="sep">O explora en modo demo</p>
-          <div class="demo">
-            <button class="btn" data-demo="CIUDADANO">Ciudadano</button>
-            <button class="btn" data-demo="SUPERVISOR">Supervisor</button>
-            <button class="btn" data-demo="TRABAJADOR">Trabajador</button>
+          <div class="demo-wrap">
+            <span>¿Solo quieres mirar? Explora el modo demo como</span>
+            <div class="demo">
+              <button class="link" data-demo="CIUDADANO">Ciudadano</button>
+              <button class="link" data-demo="SUPERVISOR">Supervisor</button>
+              <button class="link" data-demo="TRABAJADOR">Trabajador</button>
+            </div>
           </div>
         </div>
       </div>
@@ -110,7 +161,7 @@
     <!-- APP -->
     <div id="appView" class="app hidden">
       <aside>
-        <div class="brand"><span class="dot"></span>Trujillo Informado</div>
+        <div class="brand"><svg class="logo" aria-hidden="true"><use href="#logo" /></svg>Trujillo Informado</div>
         <div id="nav" role="navigation" aria-label="Secciones"></div>
         <div class="user">
           <b id="uName"></b><small id="uRole"></small>

@@ -1,19 +1,23 @@
-/* Layout: barra lateral + contenido */
-.app{display:grid;grid-template-columns:248px 1fr;min-height:100vh}
-aside{position:sticky;top:0;height:100vh;background:var(--azul);color:#fff;padding:28px 22px 24px 18px;display:flex;flex-direction:column;gap:2px}
-aside::after{content:"";position:absolute;top:0;right:0;bottom:0;width:8px;background:var(--friso-v) repeat-y;background-color:var(--azul-hover)}
-aside :focus-visible{outline-color:#fff}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-title);font-weight:700;font-size:var(--t18);letter-spacing:-.02em;margin:0 10px 28px}
-.dot{width:10px;height:10px;border-radius:50%;background:var(--ocre);flex-shrink:0}
-#nav{display:flex;flex-direction:column;gap:2px}
-.nav{padding:10px 12px;border-radius:var(--r-in);color:rgba(255,255,255,.78);border:0;background:none;text-align:left;font-weight:500;position:relative;transition:background .15s,color .15s}
+/* Layout: marca, barra lateral + contenido */
+/* ---------- marca ---------- */
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-title);font-weight:700;font-size:var(--t18);letter-spacing:-.02em;line-height:1.2}
+.logo{width:32px;height:32px;display:block}
+/* ---------- layout ---------- */
+.app{display:grid;grid-template-columns:256px 1fr;min-height:100vh}
+aside{position:sticky;top:0;height:100vh;background:var(--bosque);color:#fff;padding:28px 18px 24px;display:flex;flex-direction:column}
+aside .brand{color:#fff;margin:0 8px 36px}
+#nav{display:flex;flex-direction:column;gap:4px}
+.nav{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:var(--r-pill);color:rgba(255,255,255,.7);border:0;background:none;text-align:left;font-weight:600;transition:background .15s,color .15s}
 .nav:hover{background:rgba(255,255,255,.08);color:#fff}
-.nav.active{background:rgba(255,255,255,.14);color:#fff;font-weight:600}
-.nav.active::before{content:"";position:absolute;left:0;top:9px;bottom:9px;width:3px;border-radius:2px;background:var(--ocre)}
-.user{margin-top:auto;padding:16px 10px 0;border-top:1px solid rgba(255,255,255,.16);font-size:var(--t13)}
-.user b{font-weight:600;font-size:var(--t15);display:block}
-.user small{color:rgba(255,255,255,.72);display:block;font-size:var(--t13)}
-.user .link{color:#fff;text-decoration:underline;text-underline-offset:3px;margin-top:10px;padding:0}
-main{padding:44px 56px 64px;max-width:1120px;width:100%}
-.head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;gap:16px;flex-wrap:wrap}
-.sec{font-size:var(--t18);margin-bottom:12px}
+.nav.active{background:var(--hoja-deep);color:#fff}
+.nav[data-v="nuevo"]{background:var(--brote);color:var(--bosque);margin-top:14px}
+.nav[data-v="nuevo"]::before{content:"+";font-size:20px;line-height:1;font-weight:700;margin-top:-2px}
+.nav[data-v="nuevo"]:hover{background:var(--brote-hover);color:var(--bosque)}
+.nav[data-v="nuevo"].active{box-shadow:inset 0 0 0 2px var(--bosque),0 0 0 2px var(--brote)}
+.user{margin-top:auto;padding:18px 8px 0;border-top:1px solid rgba(255,255,255,.14);font-size:var(--t14)}
+.user b{font-weight:600;font-size:var(--t16);display:block}
+.user small{color:rgba(255,255,255,.7);display:block;font-size:var(--t14)}
+.user .link{color:#fff;margin-top:10px;padding:0}
+main{padding:48px 56px 72px;max-width:1140px;width:100%}
+.head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;gap:16px;flex-wrap:wrap}
+.sec{font-size:var(--t22);margin-bottom:14px}

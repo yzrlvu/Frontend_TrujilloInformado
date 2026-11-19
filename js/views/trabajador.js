@@ -14,7 +14,7 @@ export async function misTareas(ctx, estado = "") {
     const items = await ctx.repo.misTareas(estado);
     const open = items.filter((t) => t.status !== "RESUELTO").length;
     const empty = estado
-      ? `<p>No tienes tareas en estado “${STATUS[estado]}”.</p>`
+      ? `<p>No tienes tareas en estado “${STATUS[estado]}”.</p><button class="btn" data-s="">Ver todas mis tareas</button>`
       : "<p>No tienes tareas asignadas. Cuando tu supervisor te asigne una, aparecerá aquí.</p>";
 
     renderMain(`${pageHead("Mis tareas", openTasksText(open))}

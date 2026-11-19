@@ -53,7 +53,7 @@ export async function reportesZona(ctx) {
     const sub = `${items.length} ${plural(items.length, "reporte", "reportes")}. Filtra por estado o tipo y asigna los pendientes.`;
 
     renderMain(`${pageHead("Reportes de zona", sub, PDF_BUTTON)}
-    <div class="fgroup"><span>Estado</span>${chipGroup("estados", STATUS, filters.estados)}</div><div class="fgroup" style="margin-bottom:20px"><span>Tipo</span>${chipGroup("tipos", TYPES, filters.tipos)}</div>${listHTML(items, reportItem, "<p>Ningún reporte coincide con estos filtros. Quita alguno para ver más resultados.</p>")}`);
+    <div class="fgroup"><span>Estado</span>${chipGroup("estados", STATUS, filters.estados)}</div><div class="fgroup" style="margin-bottom:20px"><span>Tipo</span>${chipGroup("tipos", TYPES, filters.tipos)}</div>${listHTML(items, reportItem, `<p>Ningún reporte coincide con estos filtros. Quita alguno para ver más resultados.</p><button class="btn" id="clearFilters">Quitar filtros</button>`)}`);
 
     const root = mainEl();
     for (const chip of $$(".filters .chip", root)) {
@@ -63,6 +63,10 @@ export async function reportesZona(ctx) {
         reportesZona(ctx);
       });
     }
+    $("#clearFilters", root)?.addEventListener("click", () => {
+      ctx.session.filters = { estados: [], tipos: [] };
+      reportesZona(ctx);
+    });
     onItemClick(root, items, (r) => showReport(ctx, r));
     $("#pdf").addEventListener("click", () => exportPdf(ctx));
   } catch (e) {

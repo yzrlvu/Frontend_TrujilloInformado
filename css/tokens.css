@@ -1,19 +1,15 @@
-/* Tokens de diseño: Trujillo, ciudad de fachadas */
+/* Tokens de diseño: Trujillo verde */
 :root{
-  --cal:#FFFFFF;
-  --azul:#1E3A8A; --azul-hover:#172F72; --azul-soft:#EEF2FA;
-  --ocre:#E9B949; --ocre-ink:#835600; --ocre-soft:#FCF4DE;
-  --verde:#2F6B4F; --verde-soft:#E9F2ED;
-  --mar:#0E7490; --mar-soft:#E3F2F5;
-  --piedra:#5B6472; --linea:#E3E6EC; --suelo:#F6F7F9;
-  --f-title:"Schibsted Grotesk",system-ui,sans-serif;
-  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --r-in:6px; --r-pan:10px;
-  --t13:13px; --t15:15px; --t18:18px; --t24:24px; --t32:32px;
+  --bosque:#123B2C; --bosque-2:#0C2C20; --bosque-3:#1B4A38;
+  --hoja:#2F8F5B; --hoja-deep:#267A4C; --hoja-soft:#DCEEE2; --hoja-ink:#1F6640;
+  --salvia:#EEF4EF; --salvia-2:#E2ECE4; --blanco:#FFFFFF;
+  --brote:#B7E36B; --brote-hover:#A7D757; --brote-soft:#EDF8DA;
+  --agua:#3C8C95; --agua-ink:#2A6E76; --agua-soft:#DDEDEF;
+  --musgo:#5E6B63; --linea:#D9E3DB; --linea-2:#C3D2C7;
+  --f-title:"Bricolage Grotesque",system-ui,sans-serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r-in:10px; --r-pan:18px; --r-pill:999px;
+  --t14:14px; --t16:16px; --t18:18px; --t22:22px; --t28:28px;
+  --sombra:0 24px 56px -8px rgba(18,59,44,.12),0 4px 14px rgba(18,59,44,.12);
   --ease:cubic-bezier(.2,.7,.2,1);
-  /* friso de Chan Chan: rombo escalonado, tira vertical (8px) */
-  --friso-v:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12'%3E%3Cpath d='M3 0H5V2H7V4H8V6H7V8H5V10H3V8H1V6H0V4H1V2H3Z' fill='%23E9B949'/%3E%3Cpath d='M3 4H5V6H3Z' fill='%231E3A8A'/%3E%3C/svg%3E");
-  --friso-h:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 3V5H2V7H4V8H6V7H8V5H10V3H8V1H6V0H4V1H2V3Z' fill='%23E9B949'/%3E%3Cpath d='M4 3V5H6V3Z' fill='%231E3A8A'/%3E%3C/svg%3E");
-  /* friso grande: celosía de rombos escalonados */
-  --friso-xl:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cpath fill='%23E9B949' d='M0 0h8v8h-8zM0 88h8v8h-8zM8 40h8v8h-8zM8 48h8v8h-8zM16 32h8v8h-8zM16 56h8v8h-8zM24 24h8v8h-8zM24 64h8v8h-8zM32 16h8v8h-8zM32 72h8v8h-8zM40 8h8v8h-8zM40 40h8v8h-8zM40 48h8v8h-8zM40 80h8v8h-8zM48 8h8v8h-8zM48 40h8v8h-8zM48 48h8v8h-8zM48 80h8v8h-8zM56 16h8v8h-8zM56 72h8v8h-8zM64 24h8v8h-8zM64 64h8v8h-8zM72 32h8v8h-8zM72 56h8v8h-8zM80 40h8v8h-8zM80 48h8v8h-8zM88 0h8v8h-8zM88 88h8v8h-8z'/%3E%3C/svg%3E");
 }

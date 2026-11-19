@@ -5,6 +5,8 @@ import { decodeJwt } from "./utils.js";
 import { $, $$, closeLayer, enableKeyboardActivation, toast } from "./ui/dom.js";
 import { createAuthApi } from "./api/auth.js";
 import { enter, go, http } from "./router.js";
+import { createDemoStore } from "./data/demo.js";
+import { renderImpact } from "./ui/impact.js";
 
 const auth = createAuthApi(http);
 
@@ -45,6 +47,9 @@ $("#authForm").addEventListener("submit", async (e) => {
     toast("No se pudo conectar: revisa credenciales o el servidor API");
   }
 });
+
+/* ---------- portada: cifras de impacto con los datos demo ---------- */
+renderImpact($("#impact"), createDemoStore());
 
 /* ---------- modo demo ---------- */
 for (const button of $$("[data-demo]")) {
