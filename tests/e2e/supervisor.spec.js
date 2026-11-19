@@ -51,6 +51,16 @@ test.describe("Supervisor", () => {
     await expect(page.locator("#main .sub")).toContainText("2 reportes.");
   });
 
+  test("reportes de zona: Quitar filtros vuelve a mostrar todos", async ({ page }) => {
+    await page.locator("#nav .nav", { hasText: "Reportes de zona" }).click();
+    await page.locator('.filters[data-g="estados"] .chip', { hasText: "Pendiente" }).click();
+    await page.locator('.filters[data-g="tipos"] .chip', { hasText: "Maleza" }).click();
+    await expect(items(page)).toHaveCount(0);
+    await page.getByRole("button", { name: "Quitar filtros" }).click();
+    await expect(items(page)).toHaveCount(5);
+    await expect(page.locator(".filters .chip.on")).toHaveCount(0);
+  });
+
   test("un reporte ya asignado no muestra el formulario de asignación", async ({ page }) => {
     await page.locator("#nav .nav", { hasText: "Reportes de zona" }).click();
     await items(page).nth(1).click();

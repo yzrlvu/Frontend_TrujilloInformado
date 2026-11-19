@@ -18,6 +18,13 @@ test.describe("Ciudadano", () => {
     await expect(items(page)).toHaveCount(2);
   });
 
+  test("el estado vacío filtrado ofrece volver a todos los reportes", async ({ page }) => {
+    await page.locator("#main .chip", { hasText: "Resuelto" }).click();
+    await page.locator("#main .empty").getByRole("button", { name: "Ver todos mis reportes" }).click();
+    await expect(items(page)).toHaveCount(2);
+    await expect(page.locator("#main .chip.on")).toHaveText("Todos");
+  });
+
   test("abre y cierra el detalle", async ({ page }) => {
     await items(page).first().click();
     await expect(drawer(page)).toBeVisible();

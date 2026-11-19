@@ -10,6 +10,14 @@ test.describe("Login", () => {
     await expect(page.getByRole("heading", { name: "Inicia sesión" })).toBeVisible();
   });
 
+  test("la portada muestra las cifras de impacto calculadas con los datos demo", async ({ page }) => {
+    await page.goto("/");
+    const figures = page.locator("#impact li");
+    await expect(figures).toHaveCount(3);
+    await expect(figures.locator("b")).toHaveText(["5", "2", "4"]);
+    await expect(figures.first()).toContainText("reportes de vecinos en la demo");
+  });
+
   test("alterna entre login y registro", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("#regFields")).toBeHidden();
