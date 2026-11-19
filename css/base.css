@@ -1,0 +1,13 @@
+/* Reset y estilos base */
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--f-body);background:var(--cal);color:var(--azul);font-size:var(--t15);line-height:1.55;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+svg{flex-shrink:0}
+.hidden{display:none!important}
+h1,h2,h3{font-family:var(--f-title);font-weight:700;letter-spacing:-.02em;line-height:1.2}
+h1{font-size:var(--t32)}
+.sub{color:var(--piedra);margin-top:6px;max-width:60ch}
+:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

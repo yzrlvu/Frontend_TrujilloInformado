@@ -1,0 +1,49 @@
+/* Estilos específicos de cada vista */
+/* ---------- KPIs supervisor ---------- */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);margin-bottom:44px;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);padding:22px 0}
+.kpi{padding:0 24px;border-left:1px solid var(--linea)}
+.kpi:first-child{padding-left:0;border-left:0}
+.kpi span{color:var(--piedra);font-size:var(--t13);font-weight:500;display:flex;align-items:center;gap:8px}
+.kpi b{display:block;font-family:var(--f-title);font-size:44px;font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-top:6px;font-variant-numeric:tabular-nums}
+.kpi.warn b{color:var(--ocre-ink)}
+.kpi.warn span::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--ocre)}
+.grid2{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:48px}
+.types{display:grid;gap:18px;padding-top:6px;border-top:1px solid var(--linea);padding-top:18px}
+.tbh{display:flex;justify-content:space-between;font-size:var(--t13)}
+.tbh b{font-weight:600;font-variant-numeric:tabular-nums}
+.bar{height:4px;background:var(--linea);border-radius:2px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--azul);border-radius:2px}
+
+/* ---------- nuevo reporte ---------- */
+.form{max-width:640px}
+.form>label:first-child{margin-top:0}
+.tp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0}
+.tp .chip{flex-direction:column;align-items:flex-start;gap:12px;padding:16px;border-radius:var(--r-pan);font-size:var(--t15);font-weight:600;color:var(--azul);text-align:left;position:relative;line-height:1.3}
+.tp .chip svg{width:28px;height:28px;color:var(--piedra)}
+.tp .chip:hover{background:var(--suelo)}
+.tp .chip.on{background:var(--azul-soft);color:var(--azul);border-color:var(--azul);box-shadow:inset 0 0 0 1px var(--azul)}
+.tp .chip.on svg{color:var(--azul)}
+.addr{display:flex;gap:8px}
+.addr .btn{flex-shrink:0}
+#map{height:320px;border-radius:var(--r-pan);border:1px solid var(--linea);margin-top:10px;z-index:0}
+.actions{display:flex;gap:8px;justify-content:flex-end;margin-top:28px}
+.form .actions{padding-top:20px;border-top:1px solid var(--linea)}
+
+/* ---------- login ---------- */
+.login{min-height:100vh;display:grid;grid-template-columns:minmax(280px,42%) 1fr}
+.login-art{background:var(--azul) var(--friso-xl) repeat;background-size:96px 96px;background-position:-4px -4px;position:relative;display:flex;align-items:flex-end;padding:44px}
+.login-art p{position:relative;background:var(--azul);color:#fff;padding:24px 28px 26px;border-radius:var(--r-pan);max-width:360px;font-size:var(--t15);color:rgba(255,255,255,.86)}
+.login-art p strong{display:block;font-family:var(--f-title);font-size:var(--t32);font-weight:700;letter-spacing:-.02em;line-height:1.1;color:#fff;margin-bottom:10px}
+.login-main{display:grid;place-items:center;padding:48px 24px}
+.login-box{width:100%;max-width:400px}
+.login-box .brand{margin:0 0 40px;color:var(--azul)}
+.login-box h1{margin-bottom:0}
+.login-box .btn.primary{width:100%;margin-top:24px;padding:12px 16px}
+.alt{text-align:center;margin-top:16px}
+.sep{display:flex;align-items:center;gap:12px;color:var(--piedra);font-size:var(--t13);margin:32px 0 12px}
+.sep::before,.sep::after{content:"";flex:1;height:1px;background:var(--linea)}
+.demo{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.demo .btn{font-size:var(--t13);padding:9px 6px}
+.api{margin-top:24px;font-size:var(--t13);color:var(--piedra)}
+.api summary{cursor:pointer;width:max-content}
+.api input{margin-top:8px}
